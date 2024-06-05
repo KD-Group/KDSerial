@@ -1,0 +1,18 @@
+# pycharm conf
+.idea
+
+# project cache
+cache
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+build/
+dist/
+pypi_upload.sh
+*.egg-info/
+# word doc
+~*.doc
