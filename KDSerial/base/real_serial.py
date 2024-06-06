@@ -7,19 +7,29 @@ from KDSerial.interface.serial_interface import SerialInterface
 
 
 class RealSerial(SerialInterface):
+    def find_port_by_init_msg(self) -> bool:
+        raise NotImplementedError("find port by init msg is not implemented")
+
     timeout = None  # unit: s
     baud_rate = None
-    stop_bits = 1
+    byte_size = None
+    parity = None
+    stop_bits = None
 
     def __init__(self,
                  serial_controller,
                  timeout=0.5,
                  baud_rate=9600,
-                 stop_bits=1):
+                 byte_size=serial.EIGHTBITS,
+                 parity=serial.PARITY_NONE,
+                 stop_bits=serial.STOPBITS_ONE):
         super().__init__(serial_controller)
         self.timeout = timeout
         self.baud_rate = baud_rate
+        self.byte_size = byte_size
+        self.parity = parity
         self.stop_bits = stop_bits
+
         self.logger.debug("real serial timeout: {}".format(self.timeout))
         self.logger.debug("real serial baud_rate: {}".format(self.baud_rate))
         self.logger.debug("real serial stop_bits: {}".format(self.stop_bits))
@@ -49,6 +59,8 @@ class RealSerial(SerialInterface):
                 port=port_name,
                 timeout=self.timeout,
                 baudrate=self.baud_rate,
+                bytesize=self.byte_size,
+                parity=self.parity,
                 stopbits=self.stop_bits)
             return True
 
