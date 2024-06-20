@@ -1,9 +1,9 @@
-# comment: 模拟通讯串行接口基类
 import random
 import time
 from abc import abstractmethod
-from KDSerial import exception
-from KDSerial.interface.serial_interface import SerialInterface
+
+from .. import SerialInterface
+from .. import exception
 
 
 class MockSerial(SerialInterface):

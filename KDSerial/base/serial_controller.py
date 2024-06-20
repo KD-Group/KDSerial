@@ -1,7 +1,7 @@
-# comment: 串行接口控制类, 控制是采用模拟接口还是真实接口以及串行接口通讯日志
-from KDSerial.base.real_serial import RealSerial
-from KDSerial.base.mock_serial import MockSerial
 import logging
+
+from .mock_serial import MockSerial
+from .real_serial import RealSerial
 
 
 class NotSetSerial(Exception):

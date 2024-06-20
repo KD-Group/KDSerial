@@ -1,9 +1,8 @@
-# comment: 真实通讯串行接口基类
 import serial
 import serial.tools.list_ports
-from KDSerial.exception import TimeoutException
 
-from KDSerial.interface.serial_interface import SerialInterface
+from ..exception import TimeoutException
+from ..interface import SerialInterface
 
 
 class RealSerial(SerialInterface):
