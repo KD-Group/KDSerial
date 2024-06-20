@@ -2,7 +2,7 @@
 import crcmod
 
 
-class HexStruct():
+class HexStruct:
     def __init__(self, data):
         self.list = []  # contain int obj
         origin_data = data
